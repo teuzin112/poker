@@ -58,3 +58,12 @@ model Entry {
 
   @@unique([tournamentId, playerId])
 }
+
+// Tentativas de login com senha errada, para limitar ataques de força bruta.
+model LoginAttempt {
+  id        Int      @id @default(autoincrement())
+  ip        String
+  createdAt DateTime @default(now())
+
+  @@index([ip, createdAt])
+}
