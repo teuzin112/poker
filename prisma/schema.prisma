@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Player {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  nickname  String?
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  entries   Entry[]
+}
+
+// Regras salvas como JSON: ver src/lib/prize.ts (PrizeRule[])
+model PrizeTemplate {
+  id        Int     @id @default(autoincrement())
+  name      String  @unique
+  isDefault Boolean @default(false)
+  rules     Json
+}
+
+enum TournamentStatus {
+  OPEN
+  FINISHED
+}
+
+model Tournament {
+  id         Int              @id @default(autoincrement())
+  name       String
+  date       DateTime
+  location   String?
+  buyIn      Int // centavos
+  rebuyPrice Int // centavos
+  maxRebuys  Int? // null = ilimitado
+  status     TournamentStatus @default(OPEN)
+  prizeRules Json // cópia das regras do template, editável por torneio
+  notes      String?
+  createdAt  DateTime         @default(now())
+  entries    Entry[]
+
+  @@index([date])
+}
+
+model Entry {
+  id           Int        @id @default(autoincrement())
+  tournamentId Int
+  playerId     Int
+  rebuys       Int        @default(0)
+  position     Int?
+  prize        Int        @default(0) // centavos, gravado ao finalizar
+  tournament   Tournament @relation(fields: [tournamentId], references: [id], onDelete: Cascade)
+  player       Player     @relation(fields: [playerId], references: [id], onDelete: Restrict)
+
+  @@unique([tournamentId, playerId])
+}
