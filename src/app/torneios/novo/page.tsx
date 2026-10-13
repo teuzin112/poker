@@ -25,7 +25,7 @@ export default async function NewTournamentPage() {
       <TournamentForm
         templates={templates}
         defaults={{
-          name: `Home Game #${count + 1}`,
+          name: `TCLÃ Poker #${count + 1}`,
           date: todayInput(),
           location: last?.location ?? "",
           buyIn: last ? centsToInput(last.buyIn) : "50",

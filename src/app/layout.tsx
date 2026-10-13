@@ -13,8 +13,8 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: { default: "Home Game", template: "%s · Home Game" },
-  description: "Torneios, premiação e ranking do nosso home game de poker",
+  title: { default: "TCLÃ Poker", template: "%s · TCLÃ Poker" },
+  description: "Torneios, premiação e ranking do TCLÃ Poker",
 };
 
 export const viewport: Viewport = {
@@ -31,7 +31,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
           <div className="mx-auto flex h-14 max-w-5xl items-center justify-between gap-4 px-4">
             <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight">
               <span className="text-xl text-gold">♠</span>
-              <span>Home Game</span>
+              <span>TCLÃ Poker</span>
             </Link>
             <TopNav />
             {admin ? (

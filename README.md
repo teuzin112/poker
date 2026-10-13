@@ -1,4 +1,4 @@
-# ♠ Home Game
+# ♠ TCLÃ Poker
 
 Aplicação web para gerenciar os torneios de poker caseiros: jogadores, buy-ins, rebuys, divisão da premiação e ranking por lucro líquido. Feita para usar no celular durante o jogo.
 

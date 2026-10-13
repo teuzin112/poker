@@ -18,7 +18,7 @@ export default async function HomePage() {
   return (
     <>
       <PageHeader
-        title="Home Game"
+        title="TCLÃ Poker"
         subtitle="Torneios, premiação e ranking da mesa."
         actions={
           admin && (

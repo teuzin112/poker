@@ -59,7 +59,7 @@ export function TournamentForm({
             <label className={label} htmlFor="name">
               Nome
             </label>
-            <input {...bind("name")} required className={input} placeholder="Ex.: Home Game #12" />
+            <input {...bind("name")} required className={input} placeholder="Ex.: TCLÃ Poker #12" />
           </div>
           <div>
             <label className={label} htmlFor="date">
