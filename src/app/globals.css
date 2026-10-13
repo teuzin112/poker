@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0a110e;
+  --color-surface: #111b17;
+  --color-surface-2: #16231e;
+  --color-line: #22342c;
+  --color-felt: #14532d;
+  --color-text: #e8efe9;
+  --color-muted: #8fa398;
+  --color-gold: #e0b453;
+  --color-win: #4ade80;
+  --color-loss: #f87171;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgb(20 83 45 / 0.35), transparent),
+    var(--color-bg);
+  color: var(--color-text);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
