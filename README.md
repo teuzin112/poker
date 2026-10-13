@@ -53,14 +53,12 @@ Para abrir no celular na mesma rede Wi-Fi: `npm run dev -- -H 0.0.0.0` e acesse 
 
 ## Deploy (Vercel + Neon, ambos gratuitos)
 
-1. Crie um banco em [neon.tech](https://neon.tech) e copie a connection string (`postgresql://...?sslmode=require`).
-2. Em [vercel.com](https://vercel.com), importe este repositório.
-3. Em *Settings → Environment Variables*, defina `DATABASE_URL`, `ADMIN_PASSWORD` e `AUTH_SECRET`.
-4. Faça o deploy. O script `vercel-build` aplica as migrations automaticamente.
-5. Uma única vez, rode o seed apontando para o banco de produção:
-   ```bash
-   DATABASE_URL="postgresql://...neon..." npm run db:seed
-   ```
+1. Importe este repositório na [Vercel](https://vercel.com).
+2. Adicione a integração **Neon** (Storage → Neon, plano Free) ao projeto: ela cria o banco e configura `DATABASE_URL` / `DATABASE_URL_UNPOOLED`.
+3. Em *Settings → Environment Variables*, defina `ADMIN_PASSWORD` e `AUTH_SECRET`.
+4. Faça o deploy. O script `vercel-build` aplica as migrations e cria o modelo de premiação padrão automaticamente.
+
+Cada push na branch `main` gera um novo deploy de produção.
 
 Compartilhe o link com a galera; para editar, use **Entrar** com a senha de admin.
 
